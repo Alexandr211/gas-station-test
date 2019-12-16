@@ -38,7 +38,7 @@
 Исполнитель должен продемонстрировать высокий уровень знаний языка SQL.<br>
 
 <h3> Результат:
-Реализовано в таблице ticket1, тестовый вызов процедуры в методе actionTest (web/index.php?r=site%2Ftest).</h3>
+Реализовано в таблице ticket1, тестовый вызов процедуры proc1 (дамп базы - taxi.sql) в методе actionTest (web/index.php?r=site%2Ftest).</h3>
 <br>
 <br>
 Задание 2. Должно выполняться на Yii2 (PHP и PostgreSQL либо MySQL)
