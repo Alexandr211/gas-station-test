@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 16 2019 г., 08:50
+-- Время создания: Дек 17 2019 г., 08:17
 -- Версия сервера: 5.6.43
 -- Версия PHP: 7.0.33
 
@@ -26,7 +26,7 @@ DELIMITER $$
 --
 -- Процедуры
 --
-CREATE DEFINER=`root`@`%` PROCEDURE `proc1` (IN `card_number` INT(10), IN `value_fl` FLOAT, IN `service` FLOAT, IN `station_id` INT(10))  BEGIN
+CREATE DEFINER=`root`@`%` PROCEDURE `proc1` (IN `card_number` VARCHAR(20), IN `value_fl` FLOAT, IN `service` VARCHAR(100), IN `station_id` INT(11))  BEGIN
 	DECLARE value_old FLOAT;
 	IF (value_fl < 0)
     THEN
@@ -52,12 +52,12 @@ DELIMITER ;
 --
 
 CREATE TABLE `ticket1` (
-  `id` int(10) NOT NULL,
-  `card_number` int(10) NOT NULL,
+  `id` int(11) NOT NULL,
+  `card_number` varchar(20) NOT NULL,
   `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `value_fuel` decimal(9,2) NOT NULL,
-  `service` decimal(3,1) NOT NULL,
-  `station_id` int(10) NOT NULL
+  `service` varchar(100) NOT NULL,
+  `station_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -65,13 +65,12 @@ CREATE TABLE `ticket1` (
 --
 
 INSERT INTO `ticket1` (`id`, `card_number`, `date_time`, `value_fuel`, `service`, `station_id`) VALUES
-(31769, 257473011, '2019-12-11 00:00:00', '-68.00', '35.3', 41),
-(31770, 257473011, '2019-12-12 14:27:29', '-25.00', '35.3', 42),
-(31771, 257473011, '2019-12-13 13:21:26', '-13.00', '35.3', 42),
-(31772, 257473011, '2019-12-13 13:41:27', '-10.00', '35.3', 42),
-(31775, 257473011, '2019-12-14 20:20:25', '-17.00', '35.3', 42),
-(31776, 257473011, '2019-12-15 01:53:23', '-17.00', '35.3', 42),
-(31777, 257473011, '2019-12-16 12:45:23', '-5.00', '35.3', 42);
+(31769, '257473011', '2019-12-11 00:00:00', '-68.00', '35.3', 41),
+(31770, '257473011', '2019-12-12 14:27:29', '-25.00', '35.3', 42),
+(31771, '257473011', '2019-12-13 13:21:26', '-13.00', '35.3', 42),
+(31778, '257473011', '2019-12-17 12:11:24', '0.00', '35.3', 42),
+(31779, '257473011', '2019-12-17 12:12:43', '-20.00', '35.3', 42),
+(31780, '257473011', '2019-12-17 12:15:06', '-0.20', '35.3', 42);
 
 -- --------------------------------------------------------
 
@@ -5125,7 +5124,7 @@ ALTER TABLE `ticket2`
 -- AUTO_INCREMENT для таблицы `ticket1`
 --
 ALTER TABLE `ticket1`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31778;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31781;
 
 --
 -- AUTO_INCREMENT для таблицы `ticket2`
